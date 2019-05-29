@@ -11,7 +11,7 @@ from sklearn.datasets.samples_generator import make_blobs
 from matplotlib import pyplot as plt
 
 NUM_CLUSTER = 2
-NUM_SAMPLES = 30
+NUM_SAMPLES = 50
 NUM_FEATURES = 2
 IND_SIZE = 2 * NUM_CLUSTER
 GAMA = 2
@@ -63,6 +63,7 @@ def main():
     pop = toolbox.population(n=MU)
     bestGen = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=100, stats=stats)
     v = bestGen[0][0]
+    print(np.reshape(v, (-1, 2)))
     show_result(X, v)
 
 
@@ -76,7 +77,6 @@ def show_result(X, v):
     scat = ax.scatter(x_data, y_data, s=30)
     plt.scatter(v[:, 0], v[:, 1], s=400, marker='+', c="red")
     plt.show()
-
 
 
 if __name__ == "__main__":
