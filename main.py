@@ -1,4 +1,5 @@
 import array
+import math
 import random
 
 import numpy as np
@@ -6,91 +7,77 @@ from deap import algorithms
 from deap import base
 from deap import creator
 from deap import tools
+from sklearn.datasets.samples_generator import make_blobs
+from matplotlib import pyplot as plt
 
-NUM_CLUSTER = 3
-MIN_VALUE = 4
-MAX_VALUE = 5
-MIN_STRATEGY = 0.5
-MAX_STRATEGY = 3
+NUM_CLUSTER = 2
+NUM_SAMPLES = 30
+NUM_FEATURES = 2
 IND_SIZE = 2 * NUM_CLUSTER
 GAMA = 2
-X = np.random.uniform(4, 5, (200, 2))
-y = np.random.uniform(4, 5, (200, 1))
+
+centers = [(-5, -5), (0, 5)]
+X, y = make_blobs(n_samples=NUM_SAMPLES, n_features=NUM_FEATURES, cluster_std=1.0,
+                  centers=centers, shuffle=True, random_state=0)
+
+for i in range(y.size):
+    if y[i] == 0:
+        y[i] = -1
 
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
-creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin, strategy=None)
-creator.create("Strategy", array.array, typecode="d")
-
-
-# Individual generator
-def generateES(icls, scls, size, imin, imax, smin, smax):
-    ind = icls(random.uniform(imin, imax) for _ in range(size))
-    ind.strategy = scls(random.uniform(smin, smax) for _ in range(size))
-    return ind
+creator.create("Individual", list, typecode="d", fitness=creator.FitnessMin)
 
 
 def evaluate(individual):
-    y_star = calculate_G(individual)
-    loss = 0.5 * np.linalg.norm(y - y_star)
-    print(loss)
+    v = np.reshape(individual, (-1, NUM_FEATURES))
+    G_matrix = np.empty((NUM_SAMPLES, NUM_FEATURES))
+    for i in range(X.shape[0]):
+        for j in range(v.shape[0]):
+            dist = np.linalg.norm(X[i] - v[j]) ** 2
+            dist = dist / 10
+            G_matrix[i, j] = math.exp(-dist)
+    W_matrix = (np.linalg.inv(G_matrix.transpose().dot(G_matrix)).dot(G_matrix.transpose())).dot(y)
+    y_star = G_matrix.dot(W_matrix)
+    loss = 0.5 * np.subtract(y_star, y).transpose().dot(np.subtract(y_star, y))
     return loss,
 
 
-def calculate_G(individual):
-    V_ind = np.reshape(individual, (-1, 2))
-    G_matrix = np.zeros((X.shape[0], V_ind.shape[1]))
-    for i in range(X.shape[0]):
-        for j in range(V_ind.shape[1]):
-            mantis = np.dot(X[i], V_ind[j])
-            G_matrix[i, j] = np.exp(-GAMA * mantis)
-    W_matrix = np.matmul(np.matmul(np.linalg.inv(np.matmul(G_matrix.transpose(), G_matrix)), G_matrix.transpose()), y)
-    y_star = np.matmul(G_matrix, W_matrix)
-    return y_star
-
-
-def checkStrategy(minstrategy):
-    def decorator(func):
-        def wrappper(*args, **kargs):
-            children = func(*args, **kargs)
-            for child in children:
-                for i, s in enumerate(child.strategy):
-                    if s < minstrategy:
-                        child.strategy[i] = minstrategy
-            return children
-
-        return wrappper
-
-    return decorator
-
-
 toolbox = base.Toolbox()
-toolbox.register("individual", generateES, creator.Individual, creator.Strategy,
-                 IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
+toolbox.register("attr_float", random.random)
+toolbox.register("individual", tools.initRepeat, creator.Individual,
+                 toolbox.attr_float, n=IND_SIZE)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-toolbox.register("mate", tools.cxESBlend, alpha=0.1)
-toolbox.register("mutate", tools.mutESLogNormal, c=1.0, indpb=0.03)
+toolbox.register("mate", tools.cxTwoPoint)
+toolbox.register("mutate", tools.mutGaussian, mu=0, sigma=1, indpb=0.2)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("evaluate", evaluate)
-toolbox.decorate("mate", checkStrategy(MIN_STRATEGY))
-toolbox.decorate("mutate", checkStrategy(MIN_STRATEGY))
 
 
 def main():
-    random.seed()
-    MU, LAMBDA = 10, 100
-    pop = toolbox.population(n=MU)
-    hof = tools.HallOfFame(1)
+    MU = 20
     stats = tools.Statistics(lambda ind: ind.fitness.values)
     stats.register("avg", np.mean)
-    # stats.register("std", np.std)
     stats.register("min", np.min)
     stats.register("max", np.max)
 
-    pop, logbook = algorithms.eaMuCommaLambda(pop, toolbox, mu=MU, lambda_=LAMBDA,
-                                              cxpb=0.6, mutpb=0.3, ngen=500, stats=stats, halloffame=hof)
+    pop = toolbox.population(n=MU)
+    bestGen = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=100, stats=stats)
+    v = bestGen[0][0]
+    show_result(X, v)
 
-    return pop, logbook, hof
+
+def show_result(X, v):
+    x_data = X[:, 0]
+    y_data = X[:, 1]
+    v = np.reshape(v, (-1, 2))
+    fig, ax = plt.subplots(1, 1, figsize=(5, 5))
+    ax.set_xlabel('X-axis')
+    ax.set_ylabel('Y-axis')
+    scat = ax.scatter(x_data, y_data, s=30)
+    plt.scatter(v[:, 0], v[:, 1], s=400, marker='+', c="red")
+    plt.show()
+
 
 
 if __name__ == "__main__":
-    print((main()[2]))
+    main()
