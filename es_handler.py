@@ -29,11 +29,15 @@ class ES:
         ind.strategy = scls(random.uniform(smin, smax) for _ in range(size))
         return ind
 
-    def run_algorithm(self, cxpb=0.5, mutpb=0.2, ngen=50, mu=40):
+    def run_algorithm(self, cxpb=0.5, mutpb=0.2, ngen=50, mu=30):
+        hof = tools.HallOfFame(1)
         stats = tools.Statistics(lambda ind: ind.fitness.values)
         stats.register("avg", np.mean)
         stats.register("min", np.min)
         stats.register("max", np.max)
         pop = self.toolbox.population(n=mu)
-        bestGen = algorithms.eaSimple(pop, self.toolbox, cxpb, mutpb, ngen, stats)
-        return bestGen
+        # bestGen = algorithms.eaSimple(pop, self.toolbox, cxpb, mutpb, ngen, stats)
+        pop, logbook = algorithms.eaMuCommaLambda(pop, self.toolbox, mu=mu, lambda_=35,
+                                                  cxpb=cxpb, mutpb=mutpb, ngen=ngen, stats=stats, halloffame=hof)
+        print(self.evaluate(hof[0])[0])
+        return pop, hof

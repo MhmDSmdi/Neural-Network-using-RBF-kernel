@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="560899dd-d27d-4552-9775-2de411cf6503" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/mhmd.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M/ES.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M/RBF.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M/classification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M/data_generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M/params.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M/plots.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/M/regression.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/es_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rbf_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/es_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/es_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rbf_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/rbf_handler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,36 +21,40 @@
     <session id="-577115037">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="8" />
-          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="87" />
+          <entry key="data" value="1" />
+          <entry key="png" value="2" />
+          <entry key="py" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="87" />
+          <entry key="Image" value="2" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="24" />
-          <entry key="py" value="5308" />
+          <entry key="dummy" value="54" />
+          <entry key="py" value="6412" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="24" />
-          <entry key="Python" value="5308" />
+          <entry key="PLAIN_TEXT" value="54" />
+          <entry key="Python" value="6412" />
         </counts>
       </usages-collector>
     </session>
@@ -67,12 +62,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classification.py">
+        <entry file="file://$PROJECT_DIR$/rbf_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="126">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
+                <marker date="1559653219280" expanded="true" signature="75:108" ph="..." />
+                <marker date="1559653219280" expanded="true" signature="4438:4451" ph="..." />
+                <marker date="1559653219280" expanded="true" signature="4589:4844" ph="..." />
               </folding>
             </state>
           </provider>
@@ -81,24 +79,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/es_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="549">
+              <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
               <folding>
-                <marker date="1559597381213" expanded="true" signature="156:1112" ph="..." />
+                <element signature="e#0#12#0" expanded="true" />
+                <marker date="1559653036064" expanded="true" signature="156:1112" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rbf_handler.py">
+        <entry file="file://$PROJECT_DIR$/regression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="324">
+              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <marker date="1559597546513" expanded="true" signature="75:110" ph="..." />
-                <marker date="1559597546513" expanded="true" signature="4322:4575" ph="..." />
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1559653219276" expanded="true" signature="495:500" ph="..." />
               </folding>
             </state>
           </provider>
@@ -130,15 +128,19 @@
         <option value="$PROJECT_DIR$/RBF_net.py" />
         <option value="$PROJECT_DIR$/k.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/regression.py" />
         <option value="$PROJECT_DIR$/My/regression.py" />
         <option value="$PROJECT_DIR$/My/classification.py" />
         <option value="$PROJECT_DIR$/My/es_handler.py" />
         <option value="$PROJECT_DIR$/My/rbf_handler.py" />
         <option value="$PROJECT_DIR$/RBF.py" />
-        <option value="$PROJECT_DIR$/es_handler.py" />
         <option value="$PROJECT_DIR$/classification.py" />
+        <option value="$PROJECT_DIR$/MAMD/RBF (2).py" />
+        <option value="$PROJECT_DIR$/MAMD/ES (2).py" />
+        <option value="$PROJECT_DIR$/MAMD/2.py" />
+        <option value="$PROJECT_DIR$/MAMD/ES .py" />
+        <option value="$PROJECT_DIR$/es_handler.py" />
         <option value="$PROJECT_DIR$/rbf_handler.py" />
+        <option value="$PROJECT_DIR$/regression.py" />
       </list>
     </option>
   </component>
@@ -148,10 +150,27 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="25" />
     <option name="width" value="960" />
     <option name="height" value="1055" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyPep8Inspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -177,18 +196,24 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="PyScientificConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myShowDebugConsoleByDefault" value="true" />
+    <option name="myShowVariablesByDefault" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/M" />
       <recent name="$PROJECT_DIR$/My" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MAMD" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -203,7 +228,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.regression (1)">
+    <configuration name="2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RBF-ES" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MAMD" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MAMD/2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="RBF-ES" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -218,28 +262,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="classification (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="RBF-ES" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/M/classification.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -293,6 +315,9 @@
       <module name="RBF-ES" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/My" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -308,20 +333,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="regression" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="regression (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RBF-ES" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/M/regression.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/regression.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -332,18 +354,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.classification (1)" />
-      <item itemvalue="Python.regression" />
       <item itemvalue="Python.rbf_handler" />
       <item itemvalue="Python.es_handler" />
+      <item itemvalue="Python.regression (1)" />
+      <item itemvalue="Python.2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.regression (1)" />
+        <item itemvalue="Python.es_handler" />
+        <item itemvalue="Python.2" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.rbf_handler" />
-        <item itemvalue="Python.es_handler" />
-        <item itemvalue="Python.classification (1)" />
-        <item itemvalue="Python.regression" />
       </list>
     </recent_temporary>
   </component>
@@ -373,7 +395,7 @@
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14247599" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14407684" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.2497332" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -388,21 +410,21 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32864866" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.33513513" />
+      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.33513513" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.48972973" visible="true" weight="0.4348986" />
+      <window_info active="true" anchor="right" id="SciView" order="3" sideWeight="0.48972973" visible="true" weight="0.34044823" />
       <window_info anchor="right" x="0" y="0" width="430" height="855" id="Documentation" order="4" sideWeight="0.5102703" side_tool="true" weight="0.35859126" />
       <window_info anchor="right" id="Database" order="5" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14247599" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14407684" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.2497332" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3437838" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3437838" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39891893" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -412,11 +434,11 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32864866" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.33513513" />
+      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.33513513" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" sideWeight="0.48972973" visible="true" weight="0.29615796" />
+      <window_info active="true" anchor="right" id="SciView" order="3" sideWeight="0.48972973" visible="true" weight="0.34044823" />
       <window_info anchor="right" x="0" y="0" width="430" height="855" id="Documentation" order="4" sideWeight="0.5102703" side_tool="true" weight="0.35859126" />
       <window_info anchor="right" id="Database" order="5" />
     </layout-to-restore>
@@ -449,85 +471,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/k.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="196" selection-start-line="196" selection-end-line="196" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/deap/tools/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/deap/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/deap/algorithms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="150" selection-start-line="150" selection-end-line="150" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M/data_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M/regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M/plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M/ES.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-504">
-          <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M/params.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M/RBF.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/M/classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/M/data_generator.py" />
+    <entry file="file://$PROJECT_DIR$/M/regression.py" />
+    <entry file="file://$PROJECT_DIR$/M/plots.py" />
+    <entry file="file://$PROJECT_DIR$/M/ES.py" />
+    <entry file="file://$PROJECT_DIR$/M/params.py" />
+    <entry file="file://$PROJECT_DIR$/M/RBF.py" />
+    <entry file="file://$PROJECT_DIR$/M/classification.py" />
     <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/numpy/lib/twodim_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23">
@@ -542,10 +495,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/deap/algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/deap/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="235" selection-start-line="235" selection-end-line="235" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/deap/tools/selection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="196" selection-start-line="196" selection-end-line="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cosin.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sin.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MAMD/data">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MAMD/2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MAMD/RBF.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MAMD/ES .py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="234">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -554,22 +578,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/es_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        <state relative-caret-position="549">
+          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
           <folding>
-            <marker date="1559597381213" expanded="true" signature="156:1112" ph="..." />
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1559653036064" expanded="true" signature="156:1112" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rbf_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state relative-caret-position="126">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1559597546513" expanded="true" signature="75:110" ph="..." />
-            <marker date="1559597546513" expanded="true" signature="4322:4575" ph="..." />
+            <marker date="1559653219280" expanded="true" signature="75:108" ph="..." />
+            <marker date="1559653219280" expanded="true" signature="4438:4451" ph="..." />
+            <marker date="1559653219280" expanded="true" signature="4589:4844" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1559653219276" expanded="true" signature="495:500" ph="..." />
           </folding>
         </state>
       </provider>

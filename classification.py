@@ -3,14 +3,14 @@ from matplotlib import pyplot as plt
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn import preprocessing
 
-NUM_CLUSTER = 3
+NUM_CIRCLE = 3
 NUM_SAMPLES = 100
 NUM_FEATURES = 2
 MIN_VALUE = -2
 MAX_VALUE = 2
 MIN_STRATEGY = -1
 MAX_STRATEGY = 1
-IND_SIZE = 2 * NUM_CLUSTER
+IND_SIZE = 2 * NUM_CIRCLE
 
 centers = [(-7, -4), (5, 1), (7, -4)]
 X, y = make_blobs(n_samples=NUM_SAMPLES, n_features=NUM_FEATURES, cluster_std=1.0,
@@ -31,7 +31,7 @@ def main():
     #         y[i] = -1
     print(y)
 
-    rbf = RBF(X, y)
+    rbf = RBF(X, y, NUM_FEATURES, NUM_CIRCLE, NUM_SAMPLES)
     es = ES(rbf.eval_classification, IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
     bestGen = es.run_algorithm()
     best_individual = bestGen[0][0]
