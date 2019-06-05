@@ -42,6 +42,7 @@ class RBF:
         if self.is_regression:
             return y_star
         else:
+            y_star = 1 / (1 + np.e ** -y_star)
             return np.argmax(y_star, axis=1)
 
     def cal_W(self, G, y):

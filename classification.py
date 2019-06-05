@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn import preprocessing
 
-NUM_CIRCLE = 4
+NUM_CIRCLE = 12
 NUM_CLASSES = None
 NUM_SAMPLES = 100
 NUM_FEATURES = 2
@@ -27,7 +27,7 @@ def main():
     from es_handler import ES
     from rbf_handler import RBF
 
-    rbf = RBF(X, y_prime, NUM_FEATURES, NUM_CIRCLE, NUM_SAMPLES)
+    rbf = RBF(X, y_prime, NUM_FEATURES, NUM_CIRCLE, NUM_SAMPLES, False)
     es = ES(rbf.evaluate, IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
     pop, hof = es.run_algorithm()
     y_hat = rbf.predict(hof[0])

@@ -41,6 +41,10 @@ def show_result(X, y, y_hat):
     ax.set_xlabel('X-axis')
     ax.set_ylabel('Y-axis')
     ax.scatter(X, y, s=10)
+    plt.show()
+    fig, ax = plt.subplots(1, 1, figsize=(5, 5))
+    ax.set_xlabel('X-axis')
+    ax.set_ylabel('Y-axis')
     ax.scatter(X, y_hat, c='red', s=10)
     plt.show()
 
