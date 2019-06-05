@@ -3,51 +3,54 @@ from matplotlib import pyplot as plt
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn import preprocessing
 
-NUM_CIRCLE = 3
+NUM_CIRCLE = 4
+NUM_CLASSES = None
 NUM_SAMPLES = 100
 NUM_FEATURES = 2
 MIN_VALUE = -2
 MAX_VALUE = 2
 MIN_STRATEGY = -1
 MAX_STRATEGY = 1
-IND_SIZE = 2 * NUM_CIRCLE
+IND_SIZE = (NUM_FEATURES + 1) * NUM_CIRCLE
 
 centers = [(-7, -4), (5, 1), (7, -4)]
 X, y = make_blobs(n_samples=NUM_SAMPLES, n_features=NUM_FEATURES, cluster_std=1.0,
                   centers=centers, shuffle=True, random_state=0)
-
-
 X = preprocessing.scale(X)
-print(X)
+NUM_CLASSES = np.max(np.ravel(y)) + 1
+y_prime = np.zeros((NUM_SAMPLES, NUM_CLASSES))
+for idx, label in enumerate(y):
+    y_prime[idx][label] = 1
 
 
 def main():
     from es_handler import ES
     from rbf_handler import RBF
 
-    # For 2 classes must became uncomment
-    # for i in range(y.size):
-    #     if y[i] == 0:
-    #         y[i] = -1
-    print(y)
-
-    rbf = RBF(X, y, NUM_FEATURES, NUM_CIRCLE, NUM_SAMPLES)
-    es = ES(rbf.eval_classification, IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
-    bestGen = es.run_algorithm()
-    best_individual = bestGen[0][0]
-    print(best_individual)
-    show_result(X, best_individual)
+    rbf = RBF(X, y_prime, NUM_FEATURES, NUM_CIRCLE, NUM_SAMPLES)
+    es = ES(rbf.evaluate, IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
+    pop, hof = es.run_algorithm()
+    y_hat = rbf.predict(hof[0])
+    print(y_hat)
+    show_input(X)
+    show_result(X, y_hat)
 
 
-def show_result(X, v):
-    x_data = X[:, 0]
-    y_data = X[:, 1]
-    v = np.reshape(v, (-1, 2))
+def show_result(X, y_hat):
     fig, ax = plt.subplots(1, 1, figsize=(5, 5))
     ax.set_xlabel('X-axis')
     ax.set_ylabel('Y-axis')
-    ax.scatter(x_data, y_data, s=20)
-    plt.scatter(v[:, 0], v[:, 1], s=300, marker='+', c="red")
+    colors = ['r', 'y', 'g']
+    for i in range(NUM_SAMPLES):
+        plt.scatter(X[i, 0], X[i, 1], c=colors[y_hat[i]])
+    plt.show()
+
+
+def show_input(X):
+    fig, ax = plt.subplots(1, 1, figsize=(5, 5))
+    ax.set_xlabel('X-axis')
+    ax.set_ylabel('Y-axis')
+    plt.scatter(X[:, 0], X[:, 1])
     plt.show()
 
 
