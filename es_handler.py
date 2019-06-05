@@ -52,14 +52,14 @@ class ES:
 
         return decorator
 
-    def run_algorithm(self, cxpb=0.5, mutpb=0.2, ngen=20, mu=10):
+    def run_algorithm(self, cxpb=0.5, mutpb=0.2, ngen=1, mu=10):
         hof = tools.HallOfFame(1)
         stats = tools.Statistics(lambda ind: ind.fitness.values)
         stats.register("avg", np.mean)
         stats.register("min", np.min)
         stats.register("max", np.max)
         pop = self.toolbox.population(n=mu)
-        pop, logbook = algorithms.eaMuCommaLambda(pop, self.toolbox, mu=mu, lambda_=100,
+        pop, logbook = algorithms.eaMuCommaLambda(pop, self.toolbox, mu=mu, lambda_=50,
                                                   cxpb=cxpb, mutpb=mutpb, ngen=ngen, stats=stats, halloffame=hof)
         print(self.evaluate(hof[0])[0])
         return pop, hof

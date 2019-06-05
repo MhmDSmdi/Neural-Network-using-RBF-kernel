@@ -56,7 +56,7 @@ class RBF:
 
     @staticmethod
     def loss_classification(y, y_star):
-        return 1 - ((np.sum(np.sign(np.abs(np.argmax(y, axis=1) - np.argmax(y_star, axis=1))))) / len(y_star))
+        return 1 - ((np.sum(np.sign(np.abs(np.argmax(y, axis=1) - np.argmax(y_star, axis=1))))) / len(y_star)).reshape(1, 1)
 
     # @staticmethod
     # def loss_two_class(y, y_star):
