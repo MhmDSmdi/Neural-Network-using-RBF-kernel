@@ -5,12 +5,12 @@ class RBF:
     W_matrix = V_matrix = radius = None
     LAMDA = 1
 
-    def __init__(self, x, y, num_features, num_circles, num_samples, is_regression):
+    def __init__(self, x, y, num_circles, is_regression):
         self.X = x
         self.y = y
-        self.NUM_FEATURES = num_features
+        self.NUM_FEATURES = x.shape[1]
         self.NUM_CIRCLE = num_circles
-        self.NUM_SAMPLES = num_samples
+        self.NUM_SAMPLES = x.shape[0]
         self.is_regression = is_regression
 
     def evaluate(self, individual):
@@ -42,12 +42,10 @@ class RBF:
         if self.is_regression:
             return y_star
         else:
-            y_star = 1 / (1 + np.e ** -y_star)
+            # y_star = 1 / (1 + np.e ** -y_star)
             return np.argmax(y_star, axis=1)
 
     def validation(self, X, y):
-        self.radius = self.V_matrix[:, 0]
-        self.V_matrix = self.V_matrix[:, 1:]
         G_matrix = np.empty((X.shape[0], self.NUM_CIRCLE))
         for i in range(X.shape[0]):
             for j in range(self.NUM_CIRCLE):
@@ -55,9 +53,9 @@ class RBF:
         self.W_matrix = self.cal_W(G_matrix, y)
         y_star = np.matmul(G_matrix, self.W_matrix)
         if self.is_regression:
-            return y_star
+            return y_star, self.loss_regression(y, y_star)
         else:
-            y_star = 1 / (1 + np.e ** -y_star)
+            # y_star = 1 / (1 + np.e ** -y_star)
             return np.argmax(y_star, axis=1), self.loss_classification(y, y_star)
 
     def cal_W(self, G, y):
@@ -76,8 +74,4 @@ class RBF:
 
     @staticmethod
     def loss_classification(y, y_star):
-        return 1 - ((np.sum(np.sign(np.abs(np.argmax(y, axis=1) - np.argmax(y_star, axis=1))))) / len(y_star)).reshape(1, 1)
-
-    # @staticmethod
-    # def loss_two_class(y, y_star):
-    #     return 0.5 * np.subtract(y, y_star).transpose().dot(np.subtract(y, y_star))
+        return ((np.sum(np.sign(np.abs(np.argmax(y, axis=1) - np.argmax(y_star, axis=1))))) / len(y_star))

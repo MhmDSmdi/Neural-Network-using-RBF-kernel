@@ -1,52 +1,42 @@
-import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import pyplot as plt
-from sklearn import preprocessing
+import data_handler
+import numpy as np
 
-NUM_CIRCLE = 15
-NUM_SAMPLES = 150
-NUM_FEATURES = 1
+X_train, X_test, y_train, y_test, X, y = data_handler.load_data_excel("./dataset/regdata2000.xlsx", 800, num_class=0,
+                                                                is_regression=True, shuffle=False, preprocessing=True)
 
-MIN_VALUE = -5
-MAX_VALUE = 5
-MIN_STRATEGY = -3
-MAX_STRATEGY = 3
-# IND_SIZE = NUM_FEATURES * NUM_CIRCLE
+NUM_CIRCLE = 5
+# NUM_SAMPLES = 150
+NUM_FEATURES = 3
+MIN_VALUE = np.min(X_train)
+MAX_VALUE = np.max(X_train)
+MIN_STRATEGY = -5
+MAX_STRATEGY = 5
 IND_SIZE = (NUM_FEATURES + 1) * NUM_CIRCLE
 
-# X, y = make_regression(n_samples=NUM_SAMPLES, n_features=NUM_FEATURES, noise=0.1)
-
-
-X = np.random.uniform(-4*np.pi, 4*np.pi, (NUM_SAMPLES, NUM_FEATURES))
-y = np.sin(X)/(np.pi*X)
-# y = np.cos(X)
-
-
-X = preprocessing.scale(X)
-y = preprocessing.scale(y)
 
 
 def main():
     from es_handler import ES
     from rbf_handler import RBF
-    rbf = RBF(X, y, NUM_FEATURES, NUM_CIRCLE, NUM_SAMPLES, True)
+    rbf = RBF(X_train, y_train, NUM_CIRCLE, is_regression=True)
     es = ES(rbf.evaluate, IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
-    pop, hof = es.run_algorithm()
-    y_hat = rbf.predict(hof[0])
-    show_result(X, y, y_hat)
-    # show_result(X, y, None)
+    pop, hof, err_train = es.run_algorithm(ngen=10)
+    y_hat, err_test = rbf.validation(X_test, y_test)
+    print(err_train)
+    print(err_test)
+    fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+    show_result(X, y, 'o', ax, c='b', start_point=0)
+    show_result(X_test, y_hat, '+', ax, c='r', start_point=0)
+    plt.show()
 
 
-def show_result(X, y, y_hat):
-    fig, ax = plt.subplots(1, 1, figsize=(5, 5))
+def show_result(X, y, marker, ax, c, start_point=0):
     ax.set_xlabel('X-axis')
     ax.set_ylabel('Y-axis')
-    ax.scatter(X, y, s=10)
-    plt.show()
-    fig, ax = plt.subplots(1, 1, figsize=(5, 5))
-    ax.set_xlabel('X-axis')
-    ax.set_ylabel('Y-axis')
-    ax.scatter(X, y_hat, c='red', s=10)
-    plt.show()
+    n = np.arange(start_point, X.shape[0] + start_point)
+    ax.scatter(n, y, c=c, marker=marker)
 
 
 if __name__ == "__main__":
