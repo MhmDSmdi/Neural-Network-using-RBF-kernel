@@ -16,13 +16,16 @@ def show_input(X):
     plt.show()
 
 
-NUM_CLASS = 2
-# X_train, X_test, y_train, y_test = data_handler.load_data_csv("./dataset/5clstest5000.csv", 1000, NUM_CLASS, is_regression=False, preprocessing=True, shuffle=True)
-X_train, X_test, y_train, y_test, X, y = data_handler.load_data_excel("./dataset/2clstrain5000.xlsx", 1000, NUM_CLASS, is_regression=False, preprocessing=True, shuffle=True)
+NUM_CLASS = 4
+X_train, y_train = data_handler.load_data_excel("4clstrain1200.xlsx", NUM_CLASS, is_regression=False,
+                                                preprocessing=True, shuffle=True)
+X_test, y_test = data_handler.load_data_excel("4clstest4000.xlsx", NUM_CLASS, is_regression=False, preprocessing=True,
+                                               shuffle=True)
 
+print(y_train)
 NUM_SAMPLES = X_train.shape[0]
 NUM_FEATURES = X_train.shape[1]
-NUM_CIRCLE = 10
+NUM_CIRCLE = 7
 MIN_VALUE = np.min(X_train)
 MAX_VALUE = np.max(X_train)
 MIN_STRATEGY = -5
@@ -33,15 +36,17 @@ IND_SIZE = (NUM_FEATURES + 1) * NUM_CIRCLE
 def main():
     s_train = "Train Accuracy = {} \n (num_train={}, num_circle={})"
     s_test = "Test Accuracy = {} \n (num_test={}, num_circle={})"
-    rbf = RBF(X_train, y_train, NUM_CIRCLE, False)
-    es = ES(rbf.evaluate, IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
-    pop, hof, err_train = es.run_algorithm(ngen=10)
-    y_hat = rbf.predict(hof[0])
+    # rbf = RBF(X_train, y_train, NUM_CIRCLE, False)
+    # es = ES(rbf.evaluate, IND_SIZE, MIN_VALUE, MAX_VALUE, MIN_STRATEGY, MAX_STRATEGY)
+    # pop, hof, err_train = es.run_algorithm(ngen=8)
+    # y_hat = rbf.predict(hof[0])
+    # rbf.save_network()
+    # print("Train Accuracy = {} ".format(1 - err_train))
+    # show_result(X_train, y_hat, rbf, s_train.format(1 - err_train, X_train.shape[0], NUM_CIRCLE))
+    rbf = RBF(load_data=True)
     y_validation, err_test = rbf.validation(X_test, y_test)
-    print("Train Accuracy = {} ".format(1 - err_train))
     print("Test Accuracy = {}".format(1 - err_test))
-    show_result(X_train, y_hat, rbf, s_train.format(1 - err_train, X_train.shape[0], NUM_CIRCLE))
-    show_result(X_test, y_validation, rbf, s_test.format(1 - err_test, X_test.shape[0], NUM_CIRCLE))
+    show_result_diff(X_test, y_test, y_validation, rbf, s_test.format(1 - err_test, X_test.shape[0], NUM_CIRCLE))
 
 
 def show_result(X, y, rbf, title):
@@ -61,8 +66,26 @@ def show_result(X, y, rbf, title):
     cb.set_label('Clusters')
     ax.set_xlabel('X-axis')
     ax.set_ylabel('Y-axis')
-    # plt.scatter(rbf.V_matrix[:, 0], rbf.V_matrix[:, 1], s=100, c='red', marker='+')
+    plt.scatter(rbf.V_matrix[:, 0], rbf.V_matrix[:, 1], s=100, c='g', marker='+')
     plt.show()
+
+
+def show_result_diff(X, y, y_hat, rbf, title):
+    y_hat = vector2_one_hot(y_hat, y.shape[0], NUM_CLASS)
+    for i in range(X.shape[0]):
+        if y[i, 1] == y_hat[i, 1] and y[i, 0] == y_hat[i, 0]:
+            plt.scatter(X[i, 0], X[i, 1], c='green')
+        else:
+            plt.scatter(X[i, 0], X[i, 1], c='black')
+    plt.scatter(rbf.V_matrix[:, 0], rbf.V_matrix[:, 1], s=100, c='red', marker='+')
+    plt.show()
+
+
+def vector2_one_hot(vec, row, column):
+    y_prime = np.zeros((row, column))
+    for idx, label in enumerate(vec):
+        y_prime[idx][int(label)] = 1
+    return y_prime
 
 
 if __name__ == "__main__":
